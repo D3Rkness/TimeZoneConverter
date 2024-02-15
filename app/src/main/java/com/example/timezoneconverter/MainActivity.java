@@ -3,6 +3,7 @@ package com.example.timezoneconverter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,5 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
+    }
+
+    public void viewSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 }

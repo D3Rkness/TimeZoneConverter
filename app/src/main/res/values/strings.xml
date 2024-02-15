@@ -12,6 +12,7 @@
     <string name="convertText">Convert!</string>
     <string name="warningDescription">Do Not Disturb Warning Sign</string>
     <string name="settingsDescription">Settings Button</string>
+    <string name="homeCity">Home City</string>
 
 
     <string-array name="timeZoneArray">
