@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Settings"
+        android:text="@string/settingsHeader"
         android:textColor="@color/whiteColor"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/homeTimeZoneSettingView"
@@ -59,6 +59,7 @@
         android:id="@+id/settingsTimeZoneSpinner"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:entries="@array/timeZoneArray"
         app:layout_constraintBottom_toBottomOf="@+id/homeTimeZoneSettingView"
         app:layout_constraintEnd_toEndOf="@+id/homeTimeZoneSettingView"
         app:layout_constraintStart_toStartOf="@+id/homeTimeZoneSettingView"
@@ -77,13 +78,25 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="322dp"
-        android:layout_height="47dp"
-        android:hint="hint"
+        android:layout_height="50dp"
+        android:hint="@string/cityName"
         app:layout_constraintBottom_toBottomOf="@+id/homeCityLabel"
         app:layout_constraintEnd_toEndOf="@+id/homeCityLabel"
         app:layout_constraintStart_toStartOf="@+id/homeCityLabel"
         app:layout_constraintTop_toTopOf="@+id/homeCityLabel"
         app:layout_constraintVertical_bias="0.8" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:onClick="returnToMain"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeCityLabel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

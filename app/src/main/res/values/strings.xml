@@ -13,6 +13,9 @@
     <string name="warningDescription">Do Not Disturb Warning Sign</string>
     <string name="settingsDescription">Settings Button</string>
     <string name="homeCity">Home City</string>
+    <string name="save">Save</string>
+    <string name="cityName">Baltimore</string>
+    <string name="settingsHeader">Settings</string>
 
 
     <string-array name="timeZoneArray">
