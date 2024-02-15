@@ -35,20 +35,21 @@ public class MainActivity extends AppCompatActivity {
         TimePickerDialog.OnTimeSetListener onTimeSetListener = (timePicker, selectedHour, selectedMinute) -> {
             hour = selectedHour;
             minute = selectedMinute;
+            int adjustedHour = hour;
 
             if (hour >= 12) {
                 period = "PM";
                 if (hour > 12) {
-                    hour -= 12;
+                    adjustedHour -= 12;
                 }
             } else {
                 period = "AM";
                 if (hour == 0) {
-                    hour = 12;
+                    adjustedHour = 12;
                 }
             }
 
-            timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d %s",hour, minute, period));
+            timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d %s",adjustedHour, minute, period));
         };
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, false);
@@ -72,24 +73,34 @@ public class MainActivity extends AppCompatActivity {
 
         if (homeTimeSign == currTimeSign) {
             convertedHour += currTimeDigit - homeTimeDigit;
-        } else if (homeTimeSign == '+') {
-            convertedHour += -1 * (homeTimeDigit + currTimeDigit);
+        } else if (homeTimeSign == '-') {
+            convertedHour -= homeTimeDigit + currTimeDigit;
         } else {
             convertedHour += homeTimeDigit + currTimeDigit;
         }
 
-        if (convertedHour < 1) {
-            convertedHour += 12;
-            if (period.equals("AM")) {
-                period = "PM";
-            } else {
-                period = "AM";
+        while (convertedHour >= 24) {
+            convertedHour -= 24;
+        }
+        while (convertedHour < 0) {
+            convertedHour += 24;
+        }
+
+        if (convertedHour >= 12) {
+            if (convertedHour > 12) {
+                convertedHour -= 12;
             }
-        } else if (convertedHour > 12) {
-            convertedHour -= 12;
             if (period.equals("AM")) {
                 period = "PM";
-            } else {
+            }
+            else if (convertedHour == 12) {
+                period = "PM";
+            }
+        } else {
+            if (convertedHour == 0) {
+                convertedHour = 12;
+                period = "AM";
+            } else if (period.equals("PM")) {
                 period = "AM";
             }
         }
