@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="-3dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <TextView
+        android:id="@+id/timeZoneTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/time_zone_converter"
+        android:textColor="@color/textColor"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/currTimeView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/currTimeView"
+        android:layout_width="400dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/origTimeView"
+        android:layout_width="400dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currTimeView" />
+
+    <View
+        android:id="@+id/homeTimeView"
+        android:layout_width="400dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/origTimeView" />
+
+    <View
+        android:id="@+id/convTimeView"
+        android:layout_width="400dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeTimeView" />
+
+    <TextView
+        android:id="@+id/currTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/currTimeZone"
+        app:layout_constraintStart_toStartOf="@+id/currTimeView"
+        app:layout_constraintTop_toTopOf="@+id/currTimeView" />
+
+    <TextView
+        android:id="@+id/origTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/origTime"
+        app:layout_constraintStart_toStartOf="@+id/origTimeView"
+        app:layout_constraintTop_toTopOf="@+id/origTimeView" />
+
+    <TextView
+        android:id="@+id/homeTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/homeTimeZone"
+        app:layout_constraintStart_toStartOf="@+id/homeTimeView"
+        app:layout_constraintTop_toTopOf="@+id/homeTimeView" />
+
+    <TextView
+        android:id="@+id/convTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/convTime"
+        app:layout_constraintStart_toStartOf="@+id/convTimeView"
+        app:layout_constraintTop_toTopOf="@+id/convTimeView" />
+
+    <ImageButton
+        android:id="@+id/clockButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@color/backgroundColor"
+        android:contentDescription="@string/clock_image_button"
+        android:scaleType="centerInside"
+        android:src="@drawable/clock"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/convTimeView"
+        app:tint="#FFFFFF" />
+
+    <Spinner
+        android:id="@+id/timeZoneSpinner"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:entries="@array/timeZoneArray"
+        app:layout_constraintEnd_toEndOf="@+id/currTimeView"
+        app:layout_constraintStart_toStartOf="@+id/currTimeView"
+        app:layout_constraintTop_toTopOf="@+id/currTimeView" />
+
+    <Button
+        android:id="@+id/timeButton"
+        android:layout_width="237dp"
+        android:layout_height="60dp"
+        android:width="300dp"
+        android:height="100dp"
+        android:background="#00FFFFFF"
+        android:onClick="popTimePicker"
+        android:text="@string/select_time"
+        android:textColor="#000000"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/origTimeView"
+        app:layout_constraintEnd_toEndOf="@+id/origTimeView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/origTimeView"
+        app:layout_constraintTop_toTopOf="@+id/origTimeView"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <TextView
+        android:id="@+id/convertText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:fontFamily="sans-serif-black"
+        android:text="Convert!"
+        android:textColor="#FFA487"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/clockButton"
+        app:layout_constraintEnd_toEndOf="@+id/clockButton"
+        app:layout_constraintStart_toStartOf="@+id/clockButton"
+        app:layout_constraintTop_toTopOf="@+id/clockButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

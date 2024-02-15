@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="timeZoneTitle" type="id" />
+    <item name="currTimeView" type="id" />
+    <item name="origTimeView" type="id" />
+    <item name="homeTimeView" type="id" />
+    <item name="convTimeView" type="id" />
+    <item name="currTimeText" type="id" />
+    <item name="origTimeText" type="id" />
+    <item name="homeTimeText" type="id" />
+    <item name="convTimeText" type="id" />
+    <item name="clockButton" type="id" />
+    <item name="timeZoneSpinner" type="id" />
+</resources>
