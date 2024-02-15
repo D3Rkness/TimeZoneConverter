@@ -195,6 +195,8 @@
         android:layout_height="70dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:contentDescription="@string/warningDescription"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/clockButton"
         app:layout_constraintHorizontal_bias="0.3"
@@ -202,8 +204,7 @@
         app:layout_constraintTop_toBottomOf="@+id/convTimeView"
         app:layout_constraintVertical_bias="0.7"
         app:srcCompat="@android:drawable/stat_sys_warning"
-        app:tint="@color/yellowWarningColor"
-        android:contentDescription="@string/warningDescription" />
+        app:tint="@color/yellowWarningColor" />
 
     <ImageButton
         android:id="@+id/settingsButton"

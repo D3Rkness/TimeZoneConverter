@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ImageView;
 import android.util.Log;
 
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     String period;
     TextView homeTimeZoneText;
     Spinner currentTimeZoneText;
+    ImageView warningSign;
 
 
     @Override
@@ -31,12 +33,18 @@ public class MainActivity extends AppCompatActivity {
         timeButton = findViewById(R.id.timeButton);
         homeTimeZoneText = findViewById(R.id.homeTimeText);
         currentTimeZoneText = (Spinner)findViewById(R.id.timeZoneSpinner);
+        warningSign = findViewById(R.id.warningSign);
 
+
+        // Obtain current time using calendar
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("America/New_York"));
+
+        // Obtain the current hour and minute
         hour = calendar.get(Calendar.HOUR_OF_DAY);
         minute = calendar.get(Calendar.MINUTE);
 
+        // Obtain the period (am/pm) of the current time
         int periodInt = calendar.get(Calendar.AM_PM);
         if (periodInt == 0) {
             period = "AM";
@@ -44,15 +52,18 @@ public class MainActivity extends AppCompatActivity {
             period = "PM";
         }
 
+        // Set the original time default as the current time
         timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d %s",hour, minute, period));
     }
 
     public void popTimePicker(View view) {
         TimePickerDialog.OnTimeSetListener onTimeSetListener = (timePicker, selectedHour, selectedMinute) -> {
+            // Obtain the selected hour and minute, initialize variables
             hour = selectedHour;
             minute = selectedMinute;
             int adjustedHour = hour;
 
+            // Obtain the period and adjust hour to fit 12hr clock
             if (hour >= 12) {
                 period = "PM";
                 if (hour > 12) {
@@ -65,11 +76,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+            // Set the original time as the new time picked by the user
             timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d %s",adjustedHour, minute, period));
         };
 
+        // Modify time picker dialog settings
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, false);
-
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
     }
@@ -87,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         int convertedHour = hour;
 
+        // Get the time difference between current and home time to modify hour
         if (homeTimeSign == currTimeSign) {
             convertedHour += currTimeDigit - homeTimeDigit;
         } else if (homeTimeSign == '-') {
@@ -95,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
             convertedHour += homeTimeDigit + currTimeDigit;
         }
 
+        // Ensure hours are within a 24 hour range, adjust accordingly
         while (convertedHour >= 24) {
             convertedHour -= 24;
         }
@@ -102,25 +116,45 @@ public class MainActivity extends AppCompatActivity {
             convertedHour += 24;
         }
 
+        // Obtain the period of the time
         if (convertedHour >= 12) {
+            // Convert the time back to the 12hr range
             if (convertedHour > 12) {
                 convertedHour -= 12;
             }
+            // Set period to PM since hour is past 12
             if (period.equals("AM")) {
                 period = "PM";
             }
             else if (convertedHour == 12) {
                 period = "PM";
             }
+
+            // Do not disturb warning symbol logic
+            if (convertedHour == 11) {
+                warningSign.setVisibility(View.VISIBLE);
+            } else {
+                warningSign.setVisibility(View.GONE);
+            }
         } else {
+            // Do not disturb warning symbol logic
+            if (convertedHour <= 7) {
+                warningSign.setVisibility(View.VISIBLE);
+            } else {
+                warningSign.setVisibility(View.GONE);
+            }
+
             if (convertedHour == 0) {
+                // Ensure hour of 0 will set the period as AM
                 convertedHour = 12;
                 period = "AM";
             } else if (period.equals("PM")) {
+                // Set period to PM since hour is before 12
                 period = "AM";
             }
         }
 
+        // Display the converted time inside the textview
         TextView convertedTimeText = findViewById(R.id.convertedTimeText);
         convertedTimeText.setText(String.format(Locale.getDefault(), "%02d:%02d %s", convertedHour, minute, period));
     }
