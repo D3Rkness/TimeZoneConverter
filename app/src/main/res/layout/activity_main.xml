@@ -26,7 +26,7 @@
     <View
         android:id="@+id/currTimeView"
         android:layout_width="400dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:layout_marginTop="100dp"
         android:background="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
     <View
         android:id="@+id/homeTimeView"
         android:layout_width="400dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:background="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +67,7 @@
         android:id="@+id/currTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="@string/currTimeZone"
         app:layout_constraintStart_toStartOf="@+id/currTimeView"
@@ -77,7 +77,7 @@
         android:id="@+id/origTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="@string/origTime"
         app:layout_constraintStart_toStartOf="@+id/origTimeView"
@@ -87,7 +87,7 @@
         android:id="@+id/homeTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="@string/homeTimeZone"
         app:layout_constraintStart_toStartOf="@+id/homeTimeView"
@@ -97,7 +97,7 @@
         android:id="@+id/convTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="@string/convTime"
         app:layout_constraintStart_toStartOf="@+id/convTimeView"
@@ -105,8 +105,8 @@
 
     <ImageButton
         android:id="@+id/clockButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:background="@color/backgroundColor"
         android:contentDescription="@string/clock_image_button"
         android:scaleType="centerInside"
@@ -158,7 +158,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Convert!"
         android:textColor="#FFA487"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/clockButton"
         app:layout_constraintEnd_toEndOf="@+id/clockButton"
@@ -189,5 +189,37 @@
         app:layout_constraintStart_toStartOf="@+id/convTimeView"
         app:layout_constraintTop_toTopOf="@+id/convTimeView"
         app:layout_constraintVertical_bias="0.65" />
+
+    <ImageView
+        android:id="@+id/warningSign"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:tint="#FFC107"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clockButton"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/convTimeView"
+        app:layout_constraintVertical_bias="0.7"
+        app:srcCompat="@android:drawable/stat_sys_warning" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@+id/clockButton"
+        app:layout_constraintTop_toBottomOf="@+id/convTimeView"
+        app:layout_constraintVertical_bias="0.65"
+        app:srcCompat="@drawable/gear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
