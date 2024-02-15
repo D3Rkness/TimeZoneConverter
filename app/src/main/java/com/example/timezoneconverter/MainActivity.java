@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView homeTimeZoneText;
     Spinner currentTimeZoneText;
     ImageView warningSign;
+    TextView convertedTimeText;
 
 
     @Override
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         homeTimeZoneText = findViewById(R.id.homeTimeText);
         currentTimeZoneText = (Spinner)findViewById(R.id.timeZoneSpinner);
         warningSign = findViewById(R.id.warningSign);
+        convertedTimeText = findViewById(R.id.convertedTimeText);
 
 
         // Obtain current time using calendar
@@ -52,8 +54,18 @@ public class MainActivity extends AppCompatActivity {
             period = "PM";
         }
 
-        // Set the original time default as the current time
-        timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d %s",hour, minute, period));
+        // Adjust hour to fit 12hr time format
+        int adjustedHour = hour;
+        if (hour > 12) {
+            adjustedHour -= 12;
+        }
+        if (hour == 0) {
+            adjustedHour = 12;
+        }
+
+        // Set the original time default as the current time and set converted default time
+        timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d %s",adjustedHour, minute, period));
+        convertTime(convertedTimeText);
     }
 
     public void popTimePicker(View view) {
@@ -155,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Display the converted time inside the textview
-        TextView convertedTimeText = findViewById(R.id.convertedTimeText);
         convertedTimeText.setText(String.format(Locale.getDefault(), "%02d:%02d %s", convertedHour, minute, period));
     }
 
