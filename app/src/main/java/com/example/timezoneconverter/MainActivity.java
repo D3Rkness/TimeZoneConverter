@@ -12,7 +12,9 @@ import android.widget.TextView;
 import android.util.Log;
 
 
+import java.util.Calendar;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
     Button timeButton;
@@ -29,6 +31,20 @@ public class MainActivity extends AppCompatActivity {
         timeButton = findViewById(R.id.timeButton);
         homeTimeZoneText = findViewById(R.id.homeTimeText);
         currentTimeZoneText = (Spinner)findViewById(R.id.timeZoneSpinner);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeZone(TimeZone.getTimeZone("America/New_York"));
+        hour = calendar.get(Calendar.HOUR_OF_DAY);
+        minute = calendar.get(Calendar.MINUTE);
+
+        int periodInt = calendar.get(Calendar.AM_PM);
+        if (periodInt == 0) {
+            period = "AM";
+        } else {
+            period = "PM";
+        }
+
+        timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d %s",hour, minute, period));
     }
 
     public void popTimePicker(View view) {
