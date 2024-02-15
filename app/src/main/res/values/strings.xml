@@ -6,26 +6,19 @@
     <string name="homeTimeZone">Home Time Zone</string>
     <string name="convTime">Converted Time</string>
     <string name="clock_image_button">Clock Image Button</string>
-    <string name="select_time">00:00\n</string>
+    <string name="select_time">00:00 PM\n</string>
+    <string name="homeTime">America/Los_Angeles: GMT -08:00</string>
+    <string name="convertedTime">00:00 PM</string>
 
 
     <string-array name="timeZoneArray">
-        <item>America/New_York	GMT -05:00</item>
-        <item>America/Los_Angeles	GMT -08:00</item>
-        <item>Europe/Berlin	GMT +01:00</item>
-        <item>Europe/Istanbul	GMT +02:00</item>
-        <item>Asia/Bangkok	GMT +07:00</item>
-        <item>Asia/Singapore	GMT +08:00</item>
-        <item>Asia/Tokyo	GMT +09:00</item>
-        <item>Australia/Canberra	GMT +10:00</item>
-
-        America/New_York	GMT -05:00
-        America/Los_Angeles	GMT -08:00
-        Europe/Berlin	GMT +01:00
-        Europe/Istanbul	GMT +02:00
-        Asia/Singapore	GMT +08:00
-        Asia/Tokyo	GMT +09:00
-
-
+        <item>America/New_York: GMT -05:00</item>
+        <item>America/Los_Angeles: GMT -08:00</item>
+        <item>Europe/Berlin: GMT +01:00</item>
+        <item>Europe/Istanbul: GMT +02:00</item>
+        <item>Asia/Bangkok: GMT +07:00</item>
+        <item>Asia/Singapore: GMT +08:00</item>
+        <item>Asia/Tokyo: GMT +09:00</item>
+        <item>Australia/Canberra: GMT +10:00</item>
     </string-array>
 </resources>

@@ -120,12 +120,13 @@
     <Spinner
         android:id="@+id/timeZoneSpinner"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_height="50dp"
         android:entries="@array/timeZoneArray"
+        app:layout_constraintBottom_toBottomOf="@+id/currTimeView"
         app:layout_constraintEnd_toEndOf="@+id/currTimeView"
         app:layout_constraintStart_toStartOf="@+id/currTimeView"
-        app:layout_constraintTop_toTopOf="@+id/currTimeView" />
+        app:layout_constraintTop_toTopOf="@+id/currTimeView"
+        app:layout_constraintVertical_bias="0.65" />
 
     <Button
         android:id="@+id/timeButton"
@@ -163,5 +164,30 @@
         app:layout_constraintEnd_toEndOf="@+id/clockButton"
         app:layout_constraintStart_toStartOf="@+id/clockButton"
         app:layout_constraintTop_toTopOf="@+id/clockButton" />
+
+    <TextView
+        android:id="@+id/homeTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/homeTime"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeTimeView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/homeTimeView"
+        app:layout_constraintTop_toTopOf="@+id/homeTimeView"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <TextView
+        android:id="@+id/convertedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/convertedTime"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/convTimeView"
+        app:layout_constraintEnd_toEndOf="@+id/convTimeView"
+        app:layout_constraintStart_toStartOf="@+id/convTimeView"
+        app:layout_constraintTop_toTopOf="@+id/convTimeView"
+        app:layout_constraintVertical_bias="0.65" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
