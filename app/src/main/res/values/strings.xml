@@ -1,14 +1,17 @@
 <resources>
-    <string name="app_name">Time Zone Converter</string>
-    <string name="time_zone_converter">Time Zone Converter</string>
+    <string name="appName">Time Zone Converter</string>
+    <string name="timeZoneConverter">Time Zone Converter</string>
     <string name="currTimeZone">Current Time Zone</string>
     <string name="origTime">Original Time</string>
     <string name="homeTimeZone">Home Time Zone</string>
     <string name="convTime">Converted Time</string>
-    <string name="clock_image_button">Clock Image Button</string>
-    <string name="select_time">00:00 PM\n</string>
+    <string name="clockImageButton">Clock Image Button</string>
+    <string name="selectTime">00:00 PM</string>
     <string name="homeTime">America/Los_Angeles: GMT -08:00</string>
     <string name="convertedTime">00:00 PM</string>
+    <string name="convertText">Convert!</string>
+    <string name="warningDescription">Do Not Disturb Warning Sign</string>
+    <string name="settingsDescription">Settings Button</string>
 
 
     <string-array name="timeZoneArray">
