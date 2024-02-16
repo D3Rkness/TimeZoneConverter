@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import java.util.Calendar;
@@ -108,6 +109,17 @@ public class MainActivity extends AppCompatActivity {
         String currTimeZone = currentTimeZoneText.getSelectedItem().toString();
         char currTimeSign = currTimeZone.charAt(currTimeZone.length() - 6);
         int currTimeDigit = (currTimeZone.charAt(currTimeZone.length() - 4)) - '0';
+
+        // Error handling if same time zones for conversion
+        if (homeTimeZone.equals(currTimeZone)) {
+            String text = "Current & Home Time Zone Are Same";
+            int duration = Toast.LENGTH_LONG;
+
+            // Creation and display of toast
+            Toast toast = Toast.makeText(this, text, duration);
+            toast.show();
+            return;
+        }
 
         int convertedHour = hour;
 
