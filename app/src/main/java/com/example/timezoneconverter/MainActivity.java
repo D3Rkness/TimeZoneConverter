@@ -32,8 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Creates page
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Find all components of page
         timeButton = findViewById(R.id.timeButton);
         homeTimeZoneText = findViewById(R.id.homeTimeText);
         currentTimeZoneText = (Spinner)findViewById(R.id.timeZoneSpinner);
@@ -198,7 +201,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         // Retrieve the selected timezone from SharedPreferences
-        SharedPreferences sharedPref = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        Context context = getApplicationContext();
+        SharedPreferences sharedPref = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
         String selectedTimeZone = sharedPref.getString("SelectedTimeZone", "America/Los_Angeles: GMT -08:00");
         homeTimeZoneText.setText(selectedTimeZone);
     }

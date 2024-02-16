@@ -77,6 +77,7 @@
         app:layout_constraintTop_toTopOf="@+id/homeCityLabel" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editCityText"
         android:layout_width="322dp"
         android:layout_height="50dp"
         android:hint="@string/cityName"
