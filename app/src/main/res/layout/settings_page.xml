@@ -41,7 +41,6 @@
         android:layout_marginTop="32dp"
         android:background="@color/whiteColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeTimeZoneSettingView" />
 
