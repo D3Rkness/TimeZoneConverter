@@ -3,7 +3,9 @@ package com.example.timezoneconverter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -67,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
         // Set the original time default as the current time and set converted default time
         timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d %s",adjustedHour, minute, period));
         convertTime(convertedTimeText);
+
+        // Set default Home Time Zone
+        String defaultHomeTime = "America/Los_Angeles: GMT -08:00";
+        homeTimeZoneText.setText(defaultHomeTime);
     }
 
     public void popTimePicker(View view) {
@@ -185,5 +191,15 @@ public class MainActivity extends AppCompatActivity {
     public void viewSettings(View view) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Retrieve the selected timezone from SharedPreferences
+        SharedPreferences sharedPref = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        String selectedTimeZone = sharedPref.getString("SelectedTimeZone", "America/Los_Angeles: GMT -08:00");
+        homeTimeZoneText.setText(selectedTimeZone);
     }
 }
