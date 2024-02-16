@@ -14,7 +14,7 @@
     <string name="settingsDescription">Settings Button</string>
     <string name="homeCity">Home City</string>
     <string name="save">Save</string>
-    <string name="cityName">Baltimore</string>
+    <string name="cityName">Enter a city…</string>
     <string name="settingsHeader">Settings</string>
 
 

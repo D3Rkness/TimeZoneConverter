@@ -32,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         // Set home time zone and city text
         homeCityEdit.setText(myPrefs.getString("HomeCityName", "Baltimore"));
-        settingsSpinner.setSelection(myPrefs.getInt("TimeZoneSelectionNumber", 0));
+        settingsSpinner.setSelection(myPrefs.getInt("TimeZoneSelectionNumber", 1));
     }
 
     public void returnToMain(View view) {
