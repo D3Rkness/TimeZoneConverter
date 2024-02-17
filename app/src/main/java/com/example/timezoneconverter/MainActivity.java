@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ImageView;
-import android.util.Log;
 import android.widget.Toast;
 
 
@@ -192,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewSettings(View view) {
+        // Go to the settings page
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
@@ -205,5 +205,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPref = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
         String selectedTimeZone = sharedPref.getString("SelectedTimeZone", "America/Los_Angeles: GMT -08:00");
         homeTimeZoneText.setText(selectedTimeZone);
+
+        // Convert time from the new home town, same time zone will output toast and stop conversion
+        convertTime(convertedTimeText);
     }
 }
