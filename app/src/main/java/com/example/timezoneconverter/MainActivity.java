@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         // Find all components of page
         timeButton = findViewById(R.id.timeButton);
         homeTimeZoneText = findViewById(R.id.homeTimeText);
-        currentTimeZoneText = (Spinner)findViewById(R.id.timeZoneSpinner);
+        currentTimeZoneText = findViewById(R.id.timeZoneSpinner);
         warningSign = findViewById(R.id.warningSign);
         convertedTimeText = findViewById(R.id.convertedTimeText);
 
