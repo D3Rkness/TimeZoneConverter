@@ -1,51 +1,14 @@
+Jonathan He, jhe66
+Nishikar Paruchuri, nparuch1
+
 ### If you customize and enhance the aesthetics of the user interface according to your taste (and best practices, of course), explain and justify any variations to the original design that you made. Note that the functionality of each activity and navigation between them must not be altered.
-For the most part, we stuck with the design given by the UIMA staff. However, one of the main design 
-decisions we took was handling what happens when the user selects the same home time zone as the 
-current time zone. Instead of waiting for the user to hit the convert button or allow the time to auto-convert,
-we immediately display the warning toast. There are several reasons why we went with this choice. 
-Firstly, we wanted to ensure that in this situation, the home time zone should still be updated (even
-if it is the same as the current time zone). It would be unusual for a user to often change around their
-home time zone (as their home would not change often), while it is more likely that a user is changing
-their current time zone if they are moving around a lot. It would further be much easier for the user to 
-directly change their current time zone (if the time zones match) instead of taking more steps to change
-their home time zone to something different. Thus, we do not want to stop this update of the home time zone.
-Rather, to handle this, we will display the updated home time zone and a warning toast.
-The toast is essential to have, as the unchanged converted time would not match with the home
-time zone correctly, so this serves as an explanation for confused users on what is happening.
-We also chose not to have the blue diagonal design lines or the light gray border colors on each of the boxes 
-as we felt a simpler and directly contrasting color palette looked crisper. Lastly, we also combined the Country/city
-with the GMT time within the spinners, as they are directly related and allows for a simpler organization.
+For the most part, we stuck with the design given by the UIMA staff. However, one of the main design decisions we took was handling what happens when the user selects the same home time zone as the current time zone. Instead of waiting for the user to hit the convert button or allow the time to auto-convert, we immediately display the warning toast. There are several reasons why we went with this choice. Firstly, we wanted to ensure that in this situation, the home time zone should still be updated (even if it is the same as the current time zone). It would be unusual for a user to often change around their home time zone (as their home would not change often), while it is more likely that a user is changing their current time zone if they are moving around a lot. It would further be much easier for the user to directly change their current time zone (if the time zones match) instead of taking more steps to change their home time zone to something different. Thus, we do not want to stop this update of the home time zone. Rather, to handle this, we will display the updated home time zone and a warning toast. The toast is essential to have, as the unchanged converted time would not match with the home time zone correctly, so this serves as an explanation for confused users on what is happening. We also chose not to have the blue diagonal design lines or the light gray border colors on each of the boxes as we felt a simpler and directly contrasting color palette looked crisper. Lastly, we also combined the country/city with the GMT time within the spinners, as they are directly related and allows for a simpler organization.
 
 ### Does it make sense to have multiple activities for this simple version of the app? Are there any design changes would you suggest with respect to the purpose of each activity and navigation between views?
-It does not make much sense to have multiple activities for the simple version of the app. 
-We already showed with the current time zone picker that there is a good way in this UI 
-to pick a new home time zone as well without an entirely new activity. It would also be 
-easy to add an input field for saved city to the same screen as well (although it is hard to 
-understand the intent of having this city field in the first place). Thus, I would 
-eliminate the settings activity altogether and have the main activity be responsible for 
-storing all user input and display since there isn’t very much to input to this app. 
-Not switching activities would also remove the need to separately persist the home time zone 
-and city state between switching views (although it would still persist between launches). 
+It does not make much sense to have multiple activities for the simple version of the app. We already showed with the current time zone picker that there is a good way in this UI to pick a new home time zone as well without an entirely new activity. It would also be easy to add an input field for saved city to the same screen as well (although it is hard to understand the intent of having this city field in the first place). Thus, I would eliminate the settings activity altogether and have the main activity be responsible for storing all user input and display since there isn’t very much to input to this app. Not switching activities would also remove the need to separately persist the home time zone and city state between switching views (although it would still persist between launches). 
 
 ### How did you test whether the app displayed the correct results for each combination?
-For each of the 64 time zone conversions (8 starting and 8 ending time zones), we manually 
-converted and made sure the time difference was correct. We ensured that we tested each combination,
-especially for those that had the sign changes (e.g. GMT of + with +, + with -, - with +, and - with -).
-While doing this, we also validated that the do-not-disturb warning sign or the toast for converting to 
-the time zone popped up when necessary. Also, for many time zone combinations, we tried testing a couple 
-different time conversions to ensure the time difference was accurate throughout the day, the conversion 
-would switch between AM and PM accurately, and that the warnings would pop up at the right times. We 
-verified all of these times by not only manually working out the math and go through the calculation logic,
-but also by looking at exact time conversion tables found on the internet (e.g. from 24timezones.com).
+For each of the 64 time zone conversions (8 starting and 8 ending time zones), we manually converted and made sure the time difference was correct. We ensured that we tested each combination, especially for those that had the sign changes (e.g. GMT of + with +, + with -, - with +, and - with -). While doing this, we also validated that the do-not-disturb warning sign or the toast for converting to the time zone popped up when necessary. Also, for many time zone combinations, we tried testing a couple different time conversions to ensure the time difference was accurate throughout the day, the conversion would switch between AM and PM accurately, and that the warnings would pop up at the right times. We verified all of these times by not only manually working out the math and go through the calculation logic, but also by looking at exact time conversion tables found on the internet (e.g. from 24timezones.com).
 
 ### What was most challenging or frustrating in doing this assignment?
-The most challenging part of the assignment was getting started. As we were new to mobile development 
-and starting the whole project from scratch (an empty activity view generated by Android Studio),
-it was annoying to create all the components and format them relative to each other properly. The even 
-harder part of this was trying to figure out how all the components could interact with each other and 
-pass information to each other to perform time zone conversions properly when the user hits convert 
-(especially figuring out how to send info from the setting activity to the main activity). However, as 
-we continued reading tutorials and experimented with the app, we learned more about how views, activities, 
-and relaunching the app affected each other and the overall app state, which started making things a lot easier. 
-We also made very good use of office hours and asking questions on piazza, which allowed us to better combat
-any errors or confusing parts that we were faced with while creating the app.
+The most challenging part of the assignment was getting started. As we were new to mobile development and starting the whole project from scratch (an empty activity view generated by Android Studio), it was annoying to create all the components and format them relative to each other properly. The even harder part of this was trying to figure out how all the components could interact with each other and pass information to each other to perform time zone conversions properly when the user hits convert (especially figuring out how to send info from the setting activity to the main activity). However, as we continued reading tutorials and experimented with the app, we learned more about how views, activities, and relaunching the app affected each other and the overall app state, which started making things a lot easier. We also made very good use of office hours and asking questions on piazza, which allowed us to better combat any errors or confusing parts that we were faced with while creating the app.
